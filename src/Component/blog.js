@@ -5,7 +5,7 @@ function Blog() {
     return(
         <>
         
-        <h2 className='text-center mb-4'>블로그</h2>
+        <h2 className='text-center mb-4'>할일 목록</h2>
             
         
 
