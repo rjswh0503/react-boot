@@ -1,6 +1,12 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
+import Movie from './Component/Movie';
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import Contact from './Component/Contact';
+import Blog from './Component/blog';
+
+
 function App() {
   return (
       <div className='App'>
@@ -33,15 +39,18 @@ function App() {
                 </div>
             </div>
           </section>
-          <section className='mb-5'>
+          <Router>
+          <section className='mb-5 mt-4'>
             <h2 className='mb-4'>세션2</h2>
             <div className='row'>
               <div className='col-md-4 mb-4'>
                 <div className='card'>
                   <div className='card-body'>
-                      <h5 className='card-title'>카드1</h5>
+                      <h5 className='card-title'>뮤직비디오</h5>
                       <p className='card-text'>
-                        안녕하세요. 카드 1입니다.</p>
+                        뮤비평가</p>
+                        <Link to="/movie">Movie</Link>
+                        
                   </div>
 
                 </div>
@@ -50,9 +59,10 @@ function App() {
               <div className='col-md-4 mb-4'>
                 <div className='card'>
                   <div className='card-body'>
-                      <h5 className='card-title'>카드2</h5>
+                      <h5 className='card-title'>Blog</h5>
                       <p className='card-text'>
-                        안녕하세요. 카드 2입니다.</p>
+                        Blog</p>
+                        <Link to="/blog">Blog</Link>
                   </div>
 
                 </div>
@@ -62,9 +72,11 @@ function App() {
               <div className='col-md-4 mb-4'>
                 <div className='card'>
                   <div className='card-body'>
-                      <h5 className='card-title'>카드3</h5>
+                      <h5 className='card-title'>Contact Us</h5>
                       <p className='card-text'>
-                        안녕하세요. 카드 3입니다.</p>
+                      Contact Us</p>
+                      <Link to="/contact">Contact Us</Link>
+                        
                   </div>
 
                 </div>
@@ -72,39 +84,21 @@ function App() {
 
               </div>
             </div>
-
+          
           </section>
-          <section>
-            <h2 className='text-center mb-4'>Contact Us</h2>
-            <form>
-              <div className='mb-3'>
-                <label className='form-label'>
-                  Name
-                </label>
-                <input type='text' className='form-control' id='name'/>
-              </div>
-              <div className='mb-3'>
-                <label className='form-label'>
-                  Email
-                </label>
-                <input type='email' className='form-control' id='emial'
-                  aria-aria-describedby='이메일 입력'
-                />
-                <small id='emailSmall' className='form-text text-muted'>이메일</small>
-              </div>
+          <hr />
+          <Routes>
+          <Route path="/movie" element={<Movie/>}></Route>
+          </Routes>
+          <Routes>
+          <Route path="/contact" element={<Contact/>}></Route>
+          </Routes>
+          <Routes>
+          <Route path="/blog" element={<Blog/>}></Route>
+          </Routes>
 
-              <div className='mb-3'>
-                <label className='form-label'>
-                메세지 작성
-                <textarea rows="4" className='form-control'></textarea>
-                </label>
-
-              </div>
-              <button className='btn btn-success mb-3'>
-                전송하기
-              </button>
-            </form>
-          </section>
+          
+          </Router>
         </main>
         <footer className='bg-dark text-light text-center py-3'>
             <p>&copy; 2023 My React Site</p>
